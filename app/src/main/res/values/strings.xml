@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">NewsDaily</string>
+    <string name="national_news">National News</string>
+    <string name="business_news">Business News</string>
+    <string name="sports_news">Sports News</string>
+    <string name="global_news">Global News</string>
+    <string name="political_news">Political News</string>
+    <string name="tech_news">Tech News</string>
+    <string name="entertainment_news">Entertainment News</string>
+    <string name="top_headlines">Top Headlines</string>
+    <string name="automobile_news">Automobile News</string>
 </resources>
