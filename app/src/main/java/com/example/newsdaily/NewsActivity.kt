@@ -2,6 +2,7 @@ package com.example.newsdaily
 
 import android.net.Uri
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -10,22 +11,24 @@ import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(), NewsItemClicked {
+class NewsActivity : AppCompatActivity(), NewsItemClicked {
 
     private lateinit var mAdapter: NewsListAdapter
-
+    companion object{
+        const val URL = "url"
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        val url = intent.getStringExtra(URL)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        fetchData()
+        fetchData(url)
         mAdapter = NewsListAdapter(this)
         recyclerView.adapter = mAdapter
     }
 
-    private fun fetchData() {
-        val url = "https://inshortsapi.vercel.app/news?category=all"
+    private fun fetchData(url:String) {
+        Toast.makeText(this, url, Toast.LENGTH_LONG).show()
         val jsonObjectRequest = JsonObjectRequest(
             Request.Method.GET,
             url,
